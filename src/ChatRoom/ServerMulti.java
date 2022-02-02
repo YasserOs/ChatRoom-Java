@@ -17,6 +17,7 @@ public class ServerMulti {
             ServerSocket myServerSocket = new ServerSocket(9001);
             System.out.println("Server Listening on port "+myServerSocket.getLocalPort()+" ...");
             while(true){
+                System.out.println("Hello Github");
                 Socket s = myServerSocket.accept();
                 new ChatHandler(s);                
             }
