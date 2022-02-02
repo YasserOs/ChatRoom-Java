@@ -13,14 +13,12 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class ChatHandler extends Thread{
  
     DataInputStream dis ;
     PrintStream ps;
     static Vector<ChatHandler> clients = new Vector<ChatHandler>();
-    public ChatHandler(Socket clientSocket) throws IOException{
-              
+    public ChatHandler(Socket clientSocket) throws IOException{              
         dis = new DataInputStream(clientSocket.getInputStream());
         ps = new PrintStream(clientSocket.getOutputStream());
         clients.add(this);
@@ -29,8 +27,7 @@ public class ChatHandler extends Thread{
         sendMsgToAll("Client Id : "+this.getId()+" Entered Chat Room ");        
         start();
     }
-    public void run(){
-        
+    public void run(){        
         while(true){            
             try {
                 // socket conneted to this thread is closed so we check on the inputstream.read() if it's = -1
